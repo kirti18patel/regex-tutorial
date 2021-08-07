@@ -16,6 +16,9 @@ This regex makes sure that the given string matches the template for an email ad
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
+- [Character Classes](#character-classes)
+- [Grouping and Capturing](#grouping-and-capturing)
+- [Bracket Expressions](#bracket-expressions)
 
 ## Regex Components
 
@@ -42,6 +45,35 @@ In the expression, [a-z0-9_.-]+ means that any character matching the characters
 The same is true of [\da-z.-]+
 
 [a-z.]{2,6} means that 2 to 6 characters matching those inside the brackets are expected. The numbers inside the curly braces specify the lower and upper limit of the number of characters expected.
+
+### Character Classes
+
+It uses special character classes use to match types of characters. 
+
+\d is used to match any digit character.
+\w is used to matching any word character.
+\s is used to matching a whitespace character.
+"." is used to matching any character (don't need "\").
+
+Note : \ used to differentiate the digit class from a plain letter d.
+
+### Grouping and Capturing
+
+Grouping and capturing is done with ( ) in regex.
+
+Anything within a set of parentheses is taken as a single group.
+
+/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
+Between /^ and $/, there are three distinct character groups, ([a-z0-9_.-]+), ([\da-z.-]+), and ([a-z.]{2,6}).
+After simplifying, it can be expressed this way: (1)@(2).(3) => (string)@(website).(com/edu/etc) template
+
+### Bracket Expressions
+
+The final piece necessary to our RegEx is bracket expressions. There are three within our code:
+[a-z0-9_.-], [\da-z.-], and [a-z.]
+
+A bracket expression represents a single character.
+For example, in [a-z0-9_.-], this character will be matched by any lowercase letters from a-z, any digit from 0-9, or a period.
 
 ## Author
 
